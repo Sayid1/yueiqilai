@@ -12,7 +12,6 @@ swiper image {
 }
 .item {
   border-radius: 7px;
-  height: 200rpx;
   border: 1px solid #ccc;
   margin-bottom: 40rpx;
   font-size: 28rpx;
@@ -20,7 +19,25 @@ swiper image {
   box-shadow: 5px 4px #f2f2f2;
   display: flex;
   flex-direction: column;
-  padding: 15rpx;
+  padding: 30rpx 50rpx 15rpx 15rpx;
+  position: relative
+}
+
+.item > i {
+  position: absolute;
+  top: 10rpx;
+  right: 15rpx;
+}
+.item > .arrow-right {
+  position: absolute;
+  top: 50%;
+  right: 10rpx;
+  border: 1px solid #000;
+  width: 25rpx;
+  height: 25rpx;
+  border-top: none;
+  border-left: none;
+  transform: translate(-50%, -50%)  rotate(-45deg);
 }
 .item .content {
   flex: 1;
@@ -29,24 +46,31 @@ swiper image {
 }
 .item .supplement {
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30rpx;
+}
+.item .supplement view {
+  margin-right: 20rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+.item .supplement view i {
+  color: #000;
+  vertical-align: bottom;
+  font-size: 28rpx;
+  
+}
+.item .supplement view:last-of-type {
+  margin: 0;
 }
 
 .avatar {
-  /* width: 150rpx; */
   height: 100%;
   display: flex;
   align-items: center;
   margin-right: 30rpx;
   justify-content: center;
-  position: relative;
-  /* border: 1px solid #ccc; */
-}
-
-.avatar i {
-  position: absolute;
-  top: 80rpx;
-  right: 0;
-  transform: translateY(-100%);
 }
 
 
@@ -64,6 +88,18 @@ swiper image {
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
+  box-shadow: 5rpx 6rpx yellowgreen;
+}
+
+.viewer {
+  /* display: none; */
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  transform: translate(-50%, -50%);
+  background: #000;
+  width: 300rpx;
+  height: 300rpx;
 }
 
 .add::before {

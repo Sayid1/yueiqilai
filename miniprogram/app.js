@@ -9,7 +9,7 @@ App({
         traceUser: true,
       })
     }
-
-    this.globalData = {}
+    var systemInfo = wx.getSystemInfoSync()
+    this.globalData = systemInfo
   }
 })

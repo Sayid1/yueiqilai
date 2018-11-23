@@ -8,19 +8,28 @@
   </block>
 </swiper>
 
-  <view wx:for="{{[1, 2, 3, 4, 5]}}" wx:key="index" class='item'>
+  <view wx:for="{{[1, 2, 3, 4, 5]}}" wx:key="index" class='item' bindtap='showDetail'>
+   <i class="iconfont icon-nv"></i>
+   <view class='arrow-right'></view>
    <view class='content'>
       <view class='avatar'>
         <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg' />
-        <i class="iconfont icon-nan"></i>
       </view>
       <view>
-        约跑还差10人，地点：灵芝公园
+        约跑  期望100人，  已有18人
       </view>
     </view>
     <view class='supplement'>
-      2018-11-25（ 日 ）
+      <view>
+        <i class="iconfont icon-dizhi1"></i> 灵芝公园
+      </view>
+      <view>
+        <i class="iconfont icon-shijian"></i> 2018-11-25（ 日 ）
+      </view>
     </view>
   </view>
   <view class='add' />
+  <view class='viewer' id="viewer" animation="{{animation}}">
+    这是详细信息
+  </view>
 </view>

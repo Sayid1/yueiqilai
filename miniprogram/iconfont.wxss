@@ -1,12 +1,11 @@
 @font-face {
   font-family: 'iconfont';  /* project id 933524 */
-  src: url('//at.alicdn.com/t/font_933524_odd91xp2p8.eot');
-  src: url('//at.alicdn.com/t/font_933524_odd91xp2p8.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_933524_odd91xp2p8.woff') format('woff'),
-  url('//at.alicdn.com/t/font_933524_odd91xp2p8.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_933524_odd91xp2p8.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_933524_rrodeztm1dj.eot');
+  src: url('//at.alicdn.com/t/font_933524_rrodeztm1dj.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_933524_rrodeztm1dj.woff') format('woff'),
+  url('//at.alicdn.com/t/font_933524_rrodeztm1dj.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_933524_rrodeztm1dj.svg#iconfont') format('svg');
 }
-
 
 .iconfont {
   font-family:"iconfont" !important;
@@ -16,6 +15,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-dibiao:before { content: "\e61b"; }
+
+.icon-shijian:before { content: "\e67b"; }
+
+.icon-dizhi:before { content: "\e606"; }
+
+.icon-dizhi-01:before { content: "\e60d"; }
+
 .icon-nv:before { content: "\e694"; }
 
 .icon-nan:before { content: "\e695"; }
+
+.icon-address_icon:before { content: "\e656"; }
+
+.icon-dizhi1:before { content: "\e658"; }

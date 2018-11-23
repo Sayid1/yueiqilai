@@ -8,26 +8,27 @@ Page({
     indicatorDots: true,
     autoplay: false,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    animation: null
   },
-  changeIndicatorDots: function (e) {
-    this.setData({
-      indicatorDots: !this.data.indicatorDots
-    })
+  onReady() {
+    this.animation = wx.createAnimation()
+    this.query = wx.createSelectorQuery()
+    wx.getSystemInfoSync()
+    this.app = getApp()
+    // this.animation.scale(0).step()
+    // this.setData({ animation: this.animation.export() })
   },
-  changeAutoplay: function (e) {
-    this.setData({
-      autoplay: !this.data.autoplay
-    })
-  },
-  intervalChange: function (e) {
-    this.setData({
-      interval: e.detail.value
-    })
-  },
-  durationChange: function (e) {
-    this.setData({
-      duration: e.detail.value
-    })
+  showDetail() {
+    // var self = this
+    // wx.createSelectorQuery().select('#viewer').boundingClientRect(function(res) {
+    //   var w = res.width/2,
+    //       h = res.height/2,
+    //       vw = self.app.globalData.windowWidth/2,
+    //       vh = self.app.globalData.windowHeight/2
+    //       console.log(self.app.globalData)
+    //   self.animation.scale(0).top(vh).left(vw).translate(-w, -h).scale(1).step()
+    //   self.setData({ animation: self.animation.export() })
+    // }).exec()
   }
 })
