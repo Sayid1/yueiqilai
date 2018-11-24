@@ -1,3 +1,4 @@
+const app = getApp()
 Page({
   data: {
     imgUrls: [
@@ -15,7 +16,6 @@ Page({
     this.animation = wx.createAnimation()
     this.query = wx.createSelectorQuery()
     wx.getSystemInfoSync()
-    this.app = getApp()
     // this.animation.scale(0).step()
     // this.setData({ animation: this.animation.export() })
   },

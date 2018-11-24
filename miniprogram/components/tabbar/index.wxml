@@ -1,0 +1,5 @@
+<view class="tabbar fixed">
+  <text>首页</text>
+  <text>我的</text>
+  <view class='add' bindtap='add' />
+</view>

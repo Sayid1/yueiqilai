@@ -83,31 +83,21 @@ swiper image {
 .add {
   position: fixed;
   right: 20rpx;
-  bottom: 100rpx;
+  bottom: 100px;
   background: greenyellow;
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
   box-shadow: 5rpx 6rpx yellowgreen;
 }
-
-.viewer {
-  /* display: none; */
-  position: fixed;
-  top: -100%;
-  left: -100%;
-  transform: translate(-50%, -50%);
-  background: #000;
-  width: 300rpx;
-  height: 300rpx;
-}
-
 .add::before {
   content: ' ';
   position: absolute;
   top: 50%;
-  height: 2rpx;
-  width: 100%;
+  left: 5px;
+  right: 5px;
+  height: 3px;
+  box-sizing: border-box;
   background: #fff;
   transform: translateY(-50%);
 }
@@ -115,9 +105,19 @@ swiper image {
   content: ' ';
   position: absolute;
   left: 50%;
-  top: 0;
-  height: 100%;
-  width: 2px;
+  top: 5px;
+  bottom: 5px;
+  width: 3px;
   background: #fff;
   transform: translateX(-50%)
+}
+
+.viewer {
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  transform: translate(-50%, -50%);
+  background: #000;
+  width: 300rpx;
+  height: 300rpx;
 }

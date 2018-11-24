@@ -1,0 +1,56 @@
+.tabbar {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  color: #000;
+}
+.tabbar text {
+  width: 35%;
+  text-align: center;
+}
+
+.fixed{
+  left: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.add {
+  position: absolute;
+  right: 50%;
+  bottom: 100%;
+  background: greenyellow;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  /* box-shadow: 3rpx 3rpx yellowgreen; */
+  transform: translate(50%, 50%);
+  border: 5px solid #fff;
+}
+.add::before {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  right: 5px;
+  height: 3px;
+  box-sizing: border-box;
+  background: #fff;
+  transform: translateY(-50%);
+}
+.add::after {
+  content: ' ';
+  position: absolute;
+  left: 50%;
+  top: 5px;
+  bottom: 5px;
+  width: 3px;
+  background: #fff;
+  transform: translateX(-50%)
+}

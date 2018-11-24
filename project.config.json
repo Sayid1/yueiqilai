@@ -7,8 +7,8 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
-		"nodeModules": true
+		"nodeModules": true,
+		"autoAudits": false
 	},
 	"appid": "wx34afb100c879926b",
 	"projectname": "yueqilai",

@@ -28,7 +28,11 @@
       </view>
     </view>
   </view>
-  <view class='add' />
+  <tabbar>
+    
+  </tabbar>
+
+  <!-- <view class='add' /> -->
   <view class='viewer' id="viewer" animation="{{animation}}">
     这是详细信息
   </view>
