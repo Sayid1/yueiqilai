@@ -1,6 +1,6 @@
 <view class='wrap'>
   <view class='header'>
-    <view class='arrow-left' bindtap='back'/>
+    <!-- <view class='arrow-left' bindtap='back'/> -->
     <view class='input-area'>
       <input placeholder="输入分类后选择" focus confirm-type="search" bindinput="input" />
       
