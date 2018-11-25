@@ -13,6 +13,8 @@
 .tabbar text {
   width: 35%;
   text-align: center;
+  height: 50px;
+  line-height: 50px;
 }
 
 .fixed{
@@ -20,7 +22,9 @@
   bottom: 0;
   position: fixed;
 }
-
+.active {
+  color: yellowgreen;
+}
 .add {
   position: absolute;
   right: 50%;

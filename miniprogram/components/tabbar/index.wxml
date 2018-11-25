@@ -1,5 +1,5 @@
 <view class="tabbar fixed">
-  <text>首页</text>
-  <text>我的</text>
-  <view class='add' bindtap='add' />
+  <text bindtap='toIndex' class="{{ active === 1  ? 'active' : ''}}">首页</text>
+  <text bindtap='toProfile' class="{{ active === 2  ? 'active' : ''}}">我的</text>
+  <view class='add' bindtap='toAdd' />
 </view>
