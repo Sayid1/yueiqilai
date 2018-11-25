@@ -3,12 +3,9 @@
     "pages/index/index",
     "pages/add/index",
     "pages/category/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/profile/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
