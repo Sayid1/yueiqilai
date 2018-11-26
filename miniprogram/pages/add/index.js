@@ -1,10 +1,14 @@
+import Dialog from 'vant-weapp/dialog/dialog'
+
 var area = require('../../utils/area.js').default,
   QQMapWX  = require('../../utils/qqmap-wx-jssdk.min.js'),
   db = wx.cloud.database({
     env: 'yueqilai'
   }),
   app = getApp(),
-  qqmapsdk
+  qqmapsdk,
+  content = ''
+
 Page({
 
   /**
@@ -14,16 +18,27 @@ Page({
     areaList: {},
     showArea: false,
     showDatetime: false,
+    showPeopleNumber: false,
     province: '',
     city: '',
     district: '',
     datetime: '',
     category: '',
+    peopleNumner:'',
     adcode: '',
     minHour: 10,
     maxHour: 20,
     minDate: new Date().getTime(),
     currentDate: new Date().getTime()
+  },
+  inputContent({ detail }) {
+    content = detail.value
+  },
+  toggleModal(event) {
+    const key = event.currentTarget.dataset.key
+    this.setData({
+      [key]: !this.data[key]
+    })
   },
   addCategory() {
     wx.navigateTo({
@@ -31,19 +46,18 @@ Page({
     })
   },
   /**
-   * 显示选择时间
+   * 确认几人
    */
-  showDatetime() {
-    this.setData({
-      showDatetime: true,
-    })
+  choosePeopleNumber({ detail }) {
+    const value = detail.value
+    if (value) this.setData({ peopleNumner: value })
   },
   /**
-   * 隐藏选择时间
+   * 隐藏几人dialog
    */
-  hideDatetime() {
+  hidePeopleNumber() {
     this.setData({
-      showDatetime: false,
+      showPeopleNumber: false,
     })
   },
   /**
@@ -57,22 +71,6 @@ Page({
     })
   },
   /**
-   * 显示选择地点
-   */
-  showArea() {
-    this.setData({
-      showArea: true,
-    })
-  },
-  /**
-   * 隐藏选择地点
-   */
-  hideArea() {
-    this.setData({
-      showArea: false
-    })
-  },
-  /**
    * 选择地点 确定
    */
   chooseArea({ detail }) {
@@ -83,6 +81,36 @@ Page({
       district: addr.county,
       showArea: false
     })
+  },
+  onGotUserInfo({ detail }) {
+    if (detail.errMsg.includes('fail')){
+      Dialog.alert({ message: '尼玛同意请授权啊' })
+      return
+    }
+    const userInfo = detail.userInfo
+    const { province, city, district, datetime, category,  peopleNumner } = this.data
+    const params = [
+      {'field': '约炮内容', 'value': content},
+      {'field': '几人', 'value': peopleNumner},
+      {'field': '分类', 'value': category},
+      {'field': '地点', 'value': province + '-' + city + '-' + district},
+      {'field': '时间', 'value': datetime}
+    ]
+    const field = params.find(param => !param.value)
+    if (field) {
+      Dialog.alert({ message: '尼玛不输入' + field.field + ' ？？' })
+      return
+    }
+    Dialog.alert({ message: '我要保存啦' })
+    // wx.cloud.callFunction({
+    //   name: 'addList',
+    //   data: { province, city, district, datetime, category, peopleNumner, content}
+    // })
+    // .then(res => {})
+    // .catch(err => {
+
+    // })
+
   },
   getDatetime(date) {
     return date.getFullYear() + '-' + (date.getMonth() + 1 + '').padStart(2, 0) + '-' + (date.getDate() + '').padStart(2, 0) + ' ' + (date.getHours() + '').padStart(2, 0) + ':' + (date.getMinutes() + '').padStart(2, 0) + ':' + (date.getSeconds() + '').padStart(2, 0)
@@ -115,7 +143,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(2)
     this.setData({
       areaList: area
     })

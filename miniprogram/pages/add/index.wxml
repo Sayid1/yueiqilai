@@ -1,20 +1,36 @@
 <view class='wrap'>
-  <textarea placeholder="你想约什么呢" placeholder-style="color: #B3B3B3;" auto-height ></textarea>
+  <textarea bindinput="inputContent" placeholder="你想约什么呢" placeholder-style="color: #B3B3B3;" auto-height ></textarea>
   <view class='fj location'><i class="iconfont icon-dizhi1"></i> {{ province }} {{ city }} {{ district }}</view>
   <view class='fj'><i class="iconfont icon-shijian"></i> {{ datetime }}</view>
   <view class='other'>
-    <view bindtap='addCategory' class='category'>
-    <text>分类</text>
-    <text>{{ category.name }}</text>
+    <view bindtap='toggleModal' data-key="showPeopleNumber" class='category'>
+     <text>几人 {{ peopleNumner }}</text>
+      <text>{{ peopleNumner }}</text>
     </view>
-    <view bindtap='showArea'>地点</view>
-    <view bindtap='showDatetime'>时间</view>
-    <view>几人</view>
+    <view bindtap='addCategory' class='category'>
+      <text>分类</text>
+      <text>{{ category.name }}</text>
+    </view>
+    <view bindtap='toggleModal' data-key="showArea">地点</view>
+    <view bindtap='toggleModal' data-key="showDatetime">时间</view>
   </view>
-  <van-popup show="{{ showDatetime }}" bind:close="hideDatetime" position="bottom">
+
+  <van-dialog
+  use-slot
+  async-close
+  show="{{ showPeopleNumber }}"
+  show-cancel-button
+  data-key="showPeopleNumber"
+  bind:close="toggleModal"
+  bind:confirm="hidePeopleNumber"
+  >
+    <input bindinput="choosePeopleNumber" placeholder='多少人' type="number" class='people-input' />
+  </van-dialog>
+  <van-popup show="{{ showDatetime }}" bind:close="toggleModal" data-key="showDatetime" position="bottom">
     <van-datetime-picker
     class='van-datatime'
-    bind:cancel="hideDatetime"
+    data-key="showDatetime"
+    bind:cancel="toggleModal"
     bind:confirm="chooseDatetime"
     type="datetime"
     value="{{ currentDate }}"
@@ -22,13 +38,15 @@
     />
   </van-popup>
   
-<van-popup show="{{ showArea }}" bind:close="hideArea" position="bottom">
+<van-popup show="{{ showArea }}" bind:close="toggleModal" data-key="showArea" position="bottom">
   <van-area 
   class="van-area"
   area-list="{{ areaList }}" 
   value="{{ adcode }}" 
-  bind:cancel="hideArea"
+  data-key="showArea"
+  bind:cancel="toggleModal"
   bind:confirm="chooseArea"/>
    </van-popup>
-  <view class='btn-add' hidden="{{ showArea || showDatetime }}">我要约炮</view>
+   <van-dialog id="van-dialog" />
+  <button class='btn-add' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" hidden="{{ showArea || showDatetime }}">我要约炮</button>
 </view>

@@ -45,14 +45,26 @@ textarea {
   border-left: none;
   transform:  translate(-50%, -50%) rotate(-45deg);
 }
+.people-input {
+  height: 120rpx;
+  line-height: 120rpx;
+  padding: 0 50rpx;
+}
 .btn-add {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 30rpx;
+  padding: 5rpx;
   text-align: center;
   background: #FFE554;
   color: #232122;
-  font-weight: bold;
+  font-weight: 600;
+}
+button::after{
+  border: none;
+  border-radius: none;
+}
+button{
+  border-radius: 0;
 }
