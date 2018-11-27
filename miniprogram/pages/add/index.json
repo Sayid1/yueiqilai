@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "我要约pao",
-  "usingComponents": {
-    "van-area": "vant-weapp/area/index",
-    "van-datetime-picker": "vant-weapp/datetime-picker/index",
-    "van-popup": "vant-weapp/popup/index",
-    "van-dialog": "vant-weapp/dialog/index"
-  }
-}

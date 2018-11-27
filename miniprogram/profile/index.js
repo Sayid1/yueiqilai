@@ -63,6 +63,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    params.form = 'share'
+    let query = ''
+    Object.keys(params).forEach(key => query += key + '=' + params[key] + '&')
+    return {
+      title: this.data.article.category.name,
+      path: '/' + this.route + '?' + query.slice(0, -1)
+    }
   }
 })

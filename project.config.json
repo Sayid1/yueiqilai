@@ -42,7 +42,7 @@
 					"id": 1,
 					"name": "直接显示一个article",
 					"pathName": "article/index",
-					"query": "id=W_zhgpSXoyWmnLz6"
+					"query": "id=W_zhgpSXoyWmnLz6&form=share"
 				}
 			]
 		}

@@ -9,7 +9,7 @@ exports.main = async (event, context) => {
 
   return db.collection('t_share_tickets').add({
     data: {
-      "shareTicket": event.ticket
+      "ticket": event.shareTicket
     }
   })
 }

@@ -1,5 +1,0 @@
-<!--miniprogram/pages/profile/index.wxml-->
-<view>
-  <text>我的</text>
-  <tabbar active="2" />
-</view>
