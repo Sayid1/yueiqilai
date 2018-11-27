@@ -7,10 +7,5 @@ cloud.init()
 exports.main = async (event, context) => {
   const db = cloud.database()
 
-  return await db.collection('t_category').where({
-    name: db.RegExp({ 
-      regexp: event.name,
-      options: 'i'
-    }) 
-  }).get()
+  return await db.collection('t_articles').doc(event.id).get()
 }

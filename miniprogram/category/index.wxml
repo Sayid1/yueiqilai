@@ -1,0 +1,19 @@
+<view class='wrap'>
+  <view class='header'>
+    <view class='input-area'>
+      <input placeholder="输入分类后选择" focus confirm-type="search" bindinput="input" />
+      
+    </view>
+    <text bindtap="search">搜索</text>
+
+    <view class='list' wx:if="{{ list.length > 0 }}">
+        <view wx:for="{{ list }}" wx:key="index" data-id="{{ item._id }}" data-name="{{ item.name }}" bindtap='chooseCategory'>
+          <text>{{ item.name }}</text>
+        </view>
+      </view>
+  </view>
+  <view class='category'>
+    <text wx:for="{{ catetory }}" wx:key="index" data-id="{{ item._id }}" data-name="{{ item.name }}" bindtap='chooseCategory'>{{ item.name }}</text>
+  </view>
+</view>
+ 

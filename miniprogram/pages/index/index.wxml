@@ -1,4 +1,5 @@
-<view class='wrap'>
+<scroll-view scroll-y bindscrolltolower="loadArticles" style='height: {{scrollHeight}}px'>
+  <view class='wrap'>
   <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}" wx:key="imgUrls">
@@ -8,30 +9,26 @@
   </block>
 </swiper>
 
-  <view wx:for="{{[1, 2, 3, 4, 5]}}" wx:key="index" class='item' bindtap='showDetail'>
-   <i class="iconfont icon-nv"></i>
+  <button plain bindtap='toArticle' wx:for="{{ articles }}" data-id='{{ item._id }}' wx:key="index" class='item'>
+   <i class="iconfont icon-{{  item.gender === 1 ? 'nan' : 'nv' }}"></i>
    <view class='arrow-right'></view>
    <view class='content'>
       <view class='avatar'>
-        <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg' />
+        <image src='{{ item.avatarUrl}}' />
       </view>
       <view>
-        约跑  期望100人，  已有18人
+        {{ index }} {{ item.content }}  期望{{ item.peopleNumber }}人，  已有 {{ item.peopleNumber }}人
       </view>
     </view>
     <view class='supplement'>
       <view>
-        <i class="iconfont icon-dizhi1"></i> 灵芝公园
+        <i class="iconfont icon-dizhi1"></i> {{ item.city }} {{  item.gender === 1 ? '男' : '女' }}
       </view>
       <view>
-        <i class="iconfont icon-shijian"></i> 2018-11-25（ 日 ）
+        <i class="iconfont icon-shijian"></i> {{ item.date }}
       </view>
     </view>
-  </view>
+  </button>
   <tabbar />
-
-  <!-- <view class='add' /> -->
-  <view class='viewer' id="viewer" animation="{{animation}}">
-    这是详细信息
   </view>
-</view>
+</scroll-view>

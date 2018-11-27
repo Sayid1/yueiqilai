@@ -54,11 +54,11 @@ VantComponent({
       this.onClose('overlay');
     },
     handleAction: function handleAction(action) {
-      if (this.data.asyncClose) {
-        this.setData({
-          ["loading." + action]: true
-        });
-      }
+      // if (this.data.asyncClose) {
+      //   this.setData({
+      //     ["loading." + action]: true
+      //   });
+      // }
 
       this.onClose(action);
     },

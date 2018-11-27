@@ -1,0 +1,9 @@
+<view class='wrap'>
+  <view class='content'>{{ article.content }}</view>
+  <view>{{ article.province }} {{ article.city }} {{ article.district }} {{ article.addr }}</view>
+  <view>{{ article.datetime }}</view>
+  <view>约{{ article.peopleNumber }}, 已约 {{ article.peopleNumber }} 人</view>
+  <view>类型：{{ article.category.name }}</view>
+  <button class='btn-fixed' hidden="{{ isMyArticle }}">我要加入</button>
+  <button class='btn-fixed' hidden='{{ !isMyArticle }}'>去邀请好友</button>
+</view>

@@ -14,10 +14,10 @@ Component({
    */
   methods: {
     toAdd() {
-      wx.navigateTo({ url: '/pages/add/index'})
+      wx.navigateTo({ url: '/add/index'})
     },
     toProfile() {
-      wx.navigateTo({ url: '/pages/profile/index'})
+      wx.navigateTo({ url: '/profile/index'})
     },
     toIndex() {
       wx.navigateTo({ url: '/pages/index/index' })

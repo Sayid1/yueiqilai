@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tabbar": "../../components/tabbar/index"
+  },
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "我的约pao"
+}

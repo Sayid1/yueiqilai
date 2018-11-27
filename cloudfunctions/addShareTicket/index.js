@@ -7,10 +7,9 @@ cloud.init()
 exports.main = async (event, context) => {
   const db = cloud.database()
 
-  return await db.collection('t_category').where({
-    name: db.RegExp({ 
-      regexp: event.name,
-      options: 'i'
-    }) 
-  }).get()
+  return db.collection('t_share_tickets').add({
+    data: {
+      "shareTicket": event.ticket
+    }
+  })
 }

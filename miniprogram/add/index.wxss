@@ -1,0 +1,49 @@
+textarea {
+  width: 100%;
+  background: #fff;
+  padding: 30rpx;
+  box-sizing: border-box;
+  min-height: 400rpx;
+  max-height: 600rpx;
+}
+.fj {
+  background: #fff;
+  padding: 20rpx 30rpx;
+  font-size: 34rpx;
+  color: #333;
+  letter-spacing:1px;
+}
+
+.other {
+  margin-top: 20px;
+  background: #fff;
+}
+.other .category {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 100rpx;
+}
+.other view, .fj {
+  padding: 25rpx 30rpx;
+  border-bottom: 1px solid #f9f9f9;
+  color: #222;
+  position: relative;
+  letter-spacing:1px;
+}
+.other view::after, .arrow::after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  right: 50rpx;
+  width: 30rpx;
+  height:30rpx;
+  border: 3rpx solid #dbdbdb;
+  border-top: none;
+  border-left: none;
+  transform:  translate(-50%, -50%) rotate(-45deg);
+}
+.people-input {
+  height: 120rpx;
+  line-height: 120rpx;
+  padding: 0 50rpx;
+}

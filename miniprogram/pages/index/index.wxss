@@ -1,6 +1,3 @@
-.wrap {
-  padding: 20rpx 30rpx;
-}
 swiper image {
    border-radius: 7px;
    width:100%;
@@ -11,8 +8,8 @@ swiper image {
   margin-top: 60rpx;
 }
 .item {
+  border:none !important;
   border-radius: 7px;
-  border: 1px solid #ccc;
   margin-bottom: 40rpx;
   font-size: 28rpx;
   line-height: 45rpx;
@@ -110,14 +107,4 @@ swiper image {
   width: 3px;
   background: #fff;
   transform: translateX(-50%)
-}
-
-.viewer {
-  position: fixed;
-  top: -100%;
-  left: -100%;
-  transform: translate(-50%, -50%);
-  background: #000;
-  width: 300rpx;
-  height: 300rpx;
 }

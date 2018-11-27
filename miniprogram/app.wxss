@@ -5,14 +5,30 @@ page {
   width: 100%;
   margin-bottom: 50px;
 }
-.mask {
+.wrap {
+  padding: 20rpx 30rpx;
+}
+scroll-view {
+  box-sizing: border-box;
+}
+
+.btn-fixed {
   position: fixed;
-  top: 0;
-  right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, .5);
-  z-index: 99;
+  width: 100%;
+  padding: 5rpx;
+  text-align: center;
+  background: #FFE554;
+  color: #232122;
+  font-weight: 600;
+}
+button::after{
+  border: none;
+  border-radius: none;
+}
+button{
+  border-radius: 0;
 }
 
 i {
