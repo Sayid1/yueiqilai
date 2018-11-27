@@ -1,1 +1,27 @@
-/* miniprogram/pages/profile/index.wxss */
+.avatar-bg {
+  width: 100%;
+  height: 400rpx;
+}
+.actions {
+  margin-top: 40rpx;
+  background: #fff;
+}
+.actions view {
+  padding: 25rpx 30rpx;
+  border-bottom: 1px solid #f9f9f9;
+  color: #222;
+  position: relative;
+  letter-spacing:1px;
+}
+.actions view::after{
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  right: 50rpx;
+  width: 30rpx;
+  height:30rpx;
+  border: 3rpx solid #dbdbdb;
+  border-top: none;
+  border-left: none;
+  transform:  translate(-50%, -50%) rotate(-45deg);
+}

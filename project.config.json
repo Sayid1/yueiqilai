@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -42,6 +42,18 @@
 					"id": 1,
 					"name": "直接显示一个article",
 					"pathName": "article/index",
+					"query": "id=W_zhgpSXoyWmnLz6&form=share"
+				},
+				{
+					"id": 2,
+					"name": "我的",
+					"pathName": "profile/index",
+					"query": "id=W_zhgpSXoyWmnLz6&form=share"
+				},
+				{
+					"id": -1,
+					"name": "我创建的",
+					"pathName": "myArticles/index",
 					"query": "id=W_zhgpSXoyWmnLz6&form=share"
 				}
 			]

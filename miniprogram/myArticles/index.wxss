@@ -1,0 +1,19 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  display: flex;
+}
+.title text {
+  flex: 1;
+  text-align: center;
+  padding-bottom: 20rpx;
+}
+.title text.active {
+  border-bottom: 2px solid yellow;
+}
+swiper {
+  flex: 1;
+  margin-top: 30rpx;
+}

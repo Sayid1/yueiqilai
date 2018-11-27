@@ -1,7 +1,7 @@
 import Dialog from 'vant-weapp/dialog/dialog'
 
-var area = require('../../utils/area.js').default,
-  QQMapWX  = require('../../utils/qqmap-wx-jssdk.min.js'),
+var area = require('../utils/area.js').default,
+  QQMapWX  = require('../utils/qqmap-wx-jssdk.min.js'),
   db = wx.cloud.database({
     env: 'yueqilai'
   }),

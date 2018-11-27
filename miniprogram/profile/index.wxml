@@ -1,5 +1,11 @@
 <!--miniprogram/pages/profile/index.wxml-->
 <view>
-  <text>我的</text>
+  <view class='avatar-wrap'>
+    <image class='avatar-bg' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
+  </view>
+  <view class='actions'>
+    <view bindtap='toMyArticles' data-active='create'>我创建的</view>
+    <view bindtap='toMyArticles' data-active='join'>我加入的</view>
+  </view>
   <tabbar active="2" />
 </view>

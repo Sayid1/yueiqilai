@@ -3,13 +3,22 @@
 page {
   background: #fafafa;
   width: 100%;
+  height: 100%;
   margin-bottom: 50px;
 }
 .wrap {
   padding: 20rpx 30rpx;
+  height: 100%;
 }
 scroll-view {
   box-sizing: border-box;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 .btn-fixed {
