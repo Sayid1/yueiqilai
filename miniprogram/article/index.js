@@ -63,8 +63,9 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (options) {
     params.form = 'share'
+    if (options.from === 'button') params.form = 'btnshare'
     let query = ''
     Object.keys(params).forEach(key => query += key + '=' + params[key] + '&')
     return {

@@ -5,5 +5,5 @@
   <view>约{{ article.peopleNumber }}, 已约 {{ article.peopleNumber }} 人</view>
   <view>类型：{{ article.category.name }}</view>
   <button class='btn-fixed' hidden="{{ isMyArticle }}">我要加入</button>
-  <button class='btn-fixed' hidden='{{ !isMyArticle }}'>去邀请好友</button>
+  <button class='btn-fixed' open-type='share' hidden='{{ !isMyArticle }}'>去邀请好友</button>
 </view>

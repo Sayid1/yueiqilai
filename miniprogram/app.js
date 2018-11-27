@@ -17,11 +17,11 @@ App({
             shareTicket: options.shareTicket
           }
         })
-      } else if (options.query && options.query.form === 'share') { // 单聊分享
+      } else if (options.query && options.query.form !== '') { // 单聊分享
         wx.cloud.callFunction({
           name: 'addShareTicket',
           data: {
-            shareTicket: 'share'
+            shareTicket: options.query.form
           }
         })
       }
