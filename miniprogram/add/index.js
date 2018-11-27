@@ -7,7 +7,7 @@ var area = require('../../utils/area.js').default,
   }),
   app = getApp(),
   qqmapsdk,
-  content = '约你妹'
+  content = ''
 
 Page({
 
@@ -20,13 +20,13 @@ Page({
     showAddr: false, // 显示详细地址
     showDatetime: false,
     showPeopleNumber: false,
-    province: '广东省',
-    city: '深圳市',
+    province: '',
+    city: '',
     district: '',
-    addr: 'TCL科学院国际E城',
-    peopleNumber: '10',
+    addr: '',
+    peopleNumber: '',
     datetime: '',
-    category: { id: "5bf9303427197cfc7aceb3c0", name: "旅游" },
+    category: '',
     adcode: '',
     minHour: 10,
     maxHour: 20,
