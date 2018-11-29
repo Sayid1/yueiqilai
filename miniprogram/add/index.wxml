@@ -1,47 +1,49 @@
-<view class='wrap'>
+<view class="wrap">
   <textarea bindinput="inputContent" placeholder="你想约什么呢" placeholder-style="color: #B3B3B3;" auto-height ></textarea>
 
-  <view class='fj'>{{ addr }}</view>
-  <view bindtap='toggleModal' data-key="showArea" class='fj arrow'><i class="iconfont icon-dizhi1"></i> {{ province }} {{ city }} {{ district }}</view>
-  <view bindtap='toggleModal' data-key="showDatetime" class='fj arrow'><i class="iconfont icon-shijian"></i> {{ datetime }}</view>
+  <view class="cell mag0">
+    <view>{{ addr }}</view>
+    <view bindtap="toggleModal" data-key="showArea" class="arrow"><i class="iconfont icon-dizhi1"></i> {{ province }} {{ city }} {{ district }}</view>
+    <view bindtap="toggleModal" data-key="showDatetime" class="arrow"><i class="iconfont icon-shijian"></i> {{ datetime }}</view>
+  </view>
 
-  <view class='other'>
-    <view bindtap='toggleModal' data-key="showPeopleNumber" class='category'>
-     <text>几人 {{ peopleNumner }}</text>
-      <text>{{ peopleNumner }}</text>
+  <view class="cell">
+    <view bindtap="toggleModal" data-key="showPeopleNumber" class="inline-info arrow">
+     <text>几人</text>
+      <text>{{ peopleNumber }}</text>
     </view>
-    <view bindtap='addCategory' class='category'>
+    <view bindtap="addCategory" class="inline-info arrow">
       <text>分类</text>
       <text>{{ category.name }}</text>
     </view>
-    <view bindtap='toggleModal' data-key='showAddr'>详细地址</view>
+    <view bindtap="toggleModal" data-key="showAddr" class="arrow">详细地址</view>
   </view>
 
   <van-dialog
-  use-slot
-  async-close
-  show="{{ showPeopleNumber }}"
-  show-cancel-button
-  data-key="showPeopleNumber"
-  bind:cancel="toggleModal"
-  bind:confirm="comfirmPeopleNumber"
-  >
-    <input bindinput="inputPeopleNumber" placeholder='多少人' type="number" class='people-input' />
-  </van-dialog>
-  <van-dialog
-  use-slot
-  async-close
-  show="{{ showAddr }}"
-  show-cancel-button
-  data-key="showAddr"
-  bind:cancel="toggleModal"
-  bind:confirm="comfirmAddr"
-  >
-    <input bindinput="inputAddr" placeholder='详细地址' type="text" class='people-input' />
+    use-slot
+    async-close
+    show="{{ showPeopleNumber }}"
+    show-cancel-button
+    data-key="showPeopleNumber"
+    bind:cancel="toggleModal"
+    bind:confirm="comfirmPeopleNumber"
+    >
+      <input bindinput="inputPeopleNumber" placeholder="多少人" type="number" class="people-input" />
+    </van-dialog>
+    <van-dialog
+    use-slot
+    async-close
+    show="{{ showAddr }}"
+    show-cancel-button
+    data-key="showAddr"
+    bind:cancel="toggleModal"
+    bind:confirm="comfirmAddr"
+    >
+    <input bindinput="inputAddr" placeholder="详细地址" type="text" class="people-input" />
   </van-dialog>
   <van-popup show="{{ showDatetime }}" bind:close="toggleModal" data-key="showDatetime" position="bottom">
     <van-datetime-picker
-    class='van-datatime'
+    class="van-datatime"
     data-key="showDatetime"
     bind:cancel="toggleModal"
     bind:confirm="chooseDatetime"
@@ -60,5 +62,5 @@
   bind:cancel="toggleModal"
   bind:confirm="chooseArea"/>
    </van-popup>
-  <button class='btn-fixed' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" hidden="{{ showArea || showDatetime }}">我要</button>
+  <button class="btn-fixed" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" lang="zh_CN" hidden="{{ showArea || showDatetime }}">我要</button>
 </view>

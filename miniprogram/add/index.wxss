@@ -6,31 +6,11 @@ textarea {
   min-height: 400rpx;
   max-height: 600rpx;
 }
-.fj {
-  background: #fff;
-  padding: 20rpx 30rpx;
-  font-size: 34rpx;
-  color: #333;
-  letter-spacing:1px;
+.mag0 {
+  margin-top: 0 !important;
 }
 
-.other {
-  margin-top: 20px;
-  background: #fff;
-}
-.other .category {
-  display: flex;
-  justify-content: space-between;
-  padding-right: 100rpx;
-}
-.other view, .fj {
-  padding: 25rpx 30rpx;
-  border-bottom: 1px solid #f9f9f9;
-  color: #222;
-  position: relative;
-  letter-spacing:1px;
-}
-.other view::after, .arrow::after {
+/* .cell view::after, .arrow::after {
   content: ' ';
   position: absolute;
   top: 50%;
@@ -41,7 +21,7 @@ textarea {
   border-top: none;
   border-left: none;
   transform:  translate(-50%, -50%) rotate(-45deg);
-}
+} */
 .people-input {
   height: 120rpx;
   line-height: 120rpx;

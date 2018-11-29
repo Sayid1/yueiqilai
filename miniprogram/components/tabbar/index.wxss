@@ -10,11 +10,13 @@
   box-sizing: border-box;
   color: #000;
 }
-.tabbar text {
-  width: 35%;
+.tabbar button {
+  flex: 1;
   text-align: center;
   height: 50px;
   line-height: 50px;
+  background: transparent !important;
+  position: relative;
 }
 
 .fixed{
@@ -25,16 +27,24 @@
 .active {
   color: yellowgreen;
 }
-.add {
+.dot::before {
+  content: ' ';
   position: absolute;
-  right: 50%;
-  bottom: 100%;
+  top: 30rpx;
+  left: 185rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: red;
+}
+.add {
   background: greenyellow;
   width: 80rpx;
   height: 80rpx;
+  margin: 0 10rpx;
   border-radius: 50%;
-  /* box-shadow: 3rpx 3rpx yellowgreen; */
-  transform: translate(50%, 50%);
+  box-shadow: 3rpx 3rpx yellowgreen;
+  transform: translateY(-50%);
   border: 5px solid #fff;
 }
 .add::before {

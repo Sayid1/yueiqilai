@@ -1,3 +1,7 @@
+/**
+ * 根据name模糊查询类型
+ */
+
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 

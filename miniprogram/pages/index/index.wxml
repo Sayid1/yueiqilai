@@ -1,4 +1,4 @@
-<scroll-view scroll-y bindscrolltolower="loadArticles" style='height: {{scrollHeight}}px'>
+<scroll-view scroll-y bindscrolltolower="loadMoreArticles" style='height: {{scrollHeight}}px; margin-bottom: 60px;'>
   <view class='wrap'>
   <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -17,12 +17,12 @@
         <image src='{{ item.avatarUrl}}' />
       </view>
       <view>
-        {{ index }} {{ item.content }}  期望{{ item.peopleNumber }}人，  已有 {{ item.peopleNumber }}人
+        {{ item.content }}  期望{{ item.peopleNumber }}人，  已有 {{ item.peopleNumber }}人
       </view>
     </view>
     <view class='supplement'>
       <view>
-        <i class="iconfont icon-dizhi1"></i> {{ item.city }} {{  item.gender === 1 ? '男' : '女' }}
+        <i class="iconfont icon-dizhi1"></i> {{ item.city }}
       </view>
       <view>
         <i class="iconfont icon-shijian"></i> {{ item.date }}

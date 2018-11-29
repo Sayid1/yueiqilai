@@ -1,14 +1,14 @@
-<view class='wrap'>
-  <view class='content'>{{ article.content }}</view>
-  <view class='other'>
+<view class="wrap">
+  <scroll-view  scroll-y class="content">{{ article.content }}</scroll-view>
+  <view class="cell">
     <view>{{ article.datetime }}</view>
     <view>{{ article.province }} {{ article.city }} {{ article.district }} {{ article.addr }}</view>
     <view>约{{ article.peopleNumber }}人, 已约 {{ article.peopleNumber }} 人</view>
     <view>类型：{{ article.category.name }}</view>
   </view>
-  <view class='fixed-bottom'>
-    <button class='small' bindtap='outof'>不去了</button>
-    <button bindtap='join' class='full'>我要加入</button>
-    <!-- <button open-type='share' hidden='{{ !isMyArticle }}' class='full'>去邀请好友</button> -->
+  <view class="fixed-bottom">
+    <button class="small" bindtap="outof" hidden="{{ !isMyArticle }}">不去了</button>
+    <button open-type="getUserInfo" bindgetuserinfo="join" lang="zh_CN" hidden="{{ isMyArticle }}" class="full">我要加入</button>
+    <button open-type="share" hidden="{{ !isMyArticle }}" class="full">去邀请好友</button>
   </view>
 </view>

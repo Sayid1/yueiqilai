@@ -1,3 +1,6 @@
+/**
+ * 随机获取6个类型  然后去掉里面的重复的
+ */
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 

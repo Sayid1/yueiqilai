@@ -18,6 +18,9 @@ Page({
     disableLoadMore: false
   },
   onLoad() {
+    this.setData({ scrollHeight: app.globalData.systemInfo.windowHeight + 50})
+  },
+  onShow() {
     wx.showLoading({
       title: '加载中',
       mask: true
@@ -25,16 +28,8 @@ Page({
     this.getArticles()
     .catch(err => console.log(err))
     .then(() => wx.hideLoading())
-
-    this.setData({ scrollHeight: app.globalData.systemInfo.windowHeight + 50})
-
-    if (app.globalData.userInfo) return
-
-    wx.cloud.callFunction({
-      name: 'login'
-    }).then(({ result }) => app.globalData.userInfo = result)
   },
-  loadArticles() {
+  loadMoreArticles() {
     throttle(function() {
       if (!this.data.disableLoadMore) {
         wx.showLoading({

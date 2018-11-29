@@ -1,11 +1,22 @@
 <!--miniprogram/pages/profile/index.wxml-->
 <view>
-  <view class='avatar-wrap'>
-    <image class='avatar-bg' src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'></image>
+  <view class="avatar-wrap">
+    <image class="avatar-bg" src="../images/bg.jpg"></image>
+    <view class="userinfo">
+      <view class="userinfo-avatar">
+        <open-data  type="userAvatarUrl"></open-data>
+      </view>
+        <open-data type="userNickName"></open-data>
+    </view>
   </view>
-  <view class='actions'>
-    <view bindtap='toMyArticles' data-active='create'>我创建的</view>
-    <view bindtap='toMyArticles' data-active='join'>我加入的</view>
+  
+  <view class="cell">
+    <view bindtap="toMyArticles" data-active="create" class="arrow">我创建的</view>
+    <view bindtap="toMyArticles" data-active="join" class="arrow">我加入的</view>
+    <view bindtap="toMyArticles" data-active="ing" class="arrow {{ notice ? 'inline-info' : ''}}">
+      <text>正在进行的</text>
+      <text class='new'>新人加入</text>
+    </view>
   </view>
   <tabbar active="2" />
 </view>

@@ -1,3 +1,6 @@
+.wrap {
+  padding: 20rpx 30rpx;
+}
 swiper image {
    border-radius: 7px;
    width:100%;
@@ -29,7 +32,7 @@ swiper image {
   position: absolute;
   top: 50%;
   right: 10rpx;
-  border: 1px solid #000;
+  border: 1px solid #dbdbdb;
   width: 25rpx;
   height: 25rpx;
   border-top: none;

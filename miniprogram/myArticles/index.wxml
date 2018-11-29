@@ -2,6 +2,7 @@
   <view class='title'>
     <text bindtap='changeSwiper' data-active='create' class="{{active === 'create' ? 'active' : ''}}">我创建的</text>
     <text bindtap='changeSwiper' data-active='join' class="{{active === 'join' ? 'active' : ''}}">我加入的</text>
+    <text bindtap='changeSwiper' data-active='ing' class="{{active === 'ing' ? 'active' : ''}}">正在进行的</text>
   </view>
   <swiper bindchange="changeTabs" current-item-id="{{ active }}">
     <swiper-item item-id="create">
@@ -9,6 +10,9 @@
     </swiper-item>
     <swiper-item item-id="join">
     我加入的
+    </swiper-item>
+    <swiper-item item-id="ing">
+    正在进行的
     </swiper-item>
   </swiper>
 </view>

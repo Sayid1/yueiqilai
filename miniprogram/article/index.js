@@ -1,3 +1,4 @@
+import { addUser } from '../utils/util.js'
 const app = getApp()
 let params 
 Page({
@@ -15,18 +16,25 @@ Page({
    */
   onLoad: function (options) {
     params = options || {}
-    if (!app.globalData.userInfo) {
+    if (!app.globalData.loginInfo) {
       wx.cloud.callFunction({
         name: 'login'
-      }).then(({ result }) => app.globalData.userInfo = result)
+      }).then(({ result }) => app.globalData.loginInfo = result)
       .catch(() => {})
       .then(() => this.getArticle(options))
     } else this.getArticle(options)
   },
   /**
-   * 
+   * 加入
    */
-  join() {
+  join({ detail }) { 
+    if (detail.errMsg.includes('fail')) {
+      this.showModal('尼玛同意请授权啊')
+      return
+    }
+    const { userInfo } = detail
+    addUser(userInfo)
+    
     wx.showLoading({
       title: '加载中',
       mask: true
@@ -96,7 +104,7 @@ Page({
       wx.setNavigationBarTitle({
         title: result.data.category.name
       })
-      let isMyArticle = app.globalData.userInfo.openid === result.data.openid
+      let isMyArticle = app.globalData.loginInfo.openid === result.data.openid
       this.setData({
         article: result.data,
         isMyArticle
@@ -108,10 +116,9 @@ Page({
       }
       
       }).then(res => {
-        if (res && res.data && res.data.indexOf(app.globalData.userInfo.openid) > -1) {
-          isMyArticle = true
+        if (res && res.result.indexOf(this.data.article._id) > -1) {
           this.setData({
-            isMyArticle
+            isMyArticle: true
           })
         }
         

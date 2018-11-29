@@ -1,4 +1,6 @@
 import Dialog from 'vant-weapp/dialog/dialog'
+import { addUser, getAccessToken, msgSecCheck } from '../utils/util.js'
+const regeneratorRuntime = require('../utils/runtime.js')
 
 var area = require('../utils/area.js').default,
   QQMapWX  = require('../utils/qqmap-wx-jssdk.min.js'),
@@ -39,21 +41,6 @@ Page({
   inputContent({ detail }) {
     content = detail.value
   },
-  /**
-   * 输入几人
-   */
-  inputPeopleNumber({ detail }) {
-    const peopleNumber = detail.value
-    if (peopleNumber) this.setData({ peopleNumber })
-
-  },
-  /**
-   * 输入详细地址
-   */
-  inputAddr({ detail }) {
-    const addr = detail.value.trim()
-    if (addr) this.setData({ addr })
-  },
   toggleModal(event) {
     const key = event.currentTarget.dataset.key
     this.setData({
@@ -65,17 +52,32 @@ Page({
       url: '/category/index',
     })
   },
+
   /**
-   * 
+   * 输入详细地址
+   */
+  inputAddr({ detail }) {
+    const addr = detail.value.trim()
+    this.setData({ addr })
+  },
+  /**
+   * 确认详细地址
    */
   comfirmAddr() {
-    if (addr.trim()) {
+    if (this.data.addr) {
       this.setData({
         showAddr: false,
       })
       return
     }
     this.showModal('尼玛输入详细地址啊')
+  },
+  /**
+   * 输入几人
+   */
+  inputPeopleNumber({ detail }) {
+    const peopleNumber = detail.value
+    this.setData({ peopleNumber })
   },
   /*
    * 确认几人
@@ -112,12 +114,19 @@ Page({
       showArea: false
     })
   },
-  onGotUserInfo({ detail }) {
+  async onGotUserInfo({ detail }) {
     if (detail.errMsg.includes('fail')){
       this.showModal('尼玛同意请授权啊')
       return
     }
+    if (content.trim()) {
+      const check = await msgSecCheck(content)
+      if (check.errcode === 87014) {
+        return this.showModal('内容含有违法违规内容')
+      }
+    }
     const { userInfo } = detail
+    addUser(userInfo)
     const { province, city, district, datetime, category, peopleNumber, addr, adcode } = this.data
     const params = [
       {'field': '约炮内容', 'value': content.trim()},
@@ -132,6 +141,7 @@ Page({
       this.showModal('尼玛不输入' + field.field + ' ？？')
       return
     }
+    
     wx.showLoading({
       title: '加载中',
       mask: true
@@ -144,7 +154,7 @@ Page({
         gender: userInfo.gender
       }
     })
-      .then(({ result }) => wx.navigateTo({ url: `/article/index?id=${result._id}` }))
+      .then(({ result }) => wx.redirectTo({ url: `/article/index?id=${result._id}` }))
     .catch(err => {
       console.error(err)
     })
@@ -189,7 +199,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad (options) {
     this.setData({
       areaList: area
     })
