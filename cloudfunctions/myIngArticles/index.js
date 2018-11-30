@@ -12,13 +12,13 @@ exports.main = async (event, context) => {
   const db = cloud.database()
 
   // 我加入的活动id
-  const myArticlesId = await cloud.callFunction({
+  const data = await cloud.callFunction({
     name: 'myArticlesId',
     data: {
       openid,
     }
   })
-
+  const myArticlesId = data.result
   if (myArticlesId.length < 1)
     return []
 

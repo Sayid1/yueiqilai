@@ -1,34 +1,13 @@
 <scroll-view scroll-y bindscrolltolower="loadMoreArticles" style='height: {{scrollHeight}}px; margin-bottom: 60px;'>
   <view class='wrap'>
-  <swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}" wx:key="imgUrls">
-    <swiper-item>
-      <image src="{{item}}" class="slide-image" width="355" height="150"/>
-    </swiper-item>
-  </block>
-</swiper>
-
-  <button plain bindtap='toArticle' wx:for="{{ articles }}" data-id='{{ item._id }}' wx:key="index" class='item'>
-   <i class="iconfont icon-{{  item.gender === 1 ? 'nan' : 'nv' }}"></i>
-   <view class='arrow-right'></view>
-   <view class='content'>
-      <view class='avatar'>
-        <image src='{{ item.avatarUrl}}' />
-      </view>
-      <view>
-        {{ item.content }}
-      </view>
-    </view>
-    <view class='supplement'>
-      <view>
-        <i class="iconfont icon-dizhi1"></i> {{ item.city }}
-      </view>
-      <view>
-        <i class="iconfont icon-shijian"></i> {{ item.date }}
-      </view>
-    </view>
-  </button>
-  <tabbar />
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}" wx:key="imgUrls">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <articles articles="{{ articles }}" />
+    <tabbar />
   </view>
 </scroll-view>

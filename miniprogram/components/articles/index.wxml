@@ -1,0 +1,27 @@
+<view>
+<block wx:if="{{ articles }}">
+<view bindtap='toArticle' wx:for="{{ articles }}" data-id='{{ item._id }}' wx:key="index" class='item' >
+  <i class="iconfont icon-{{  item.gender === 1 ? 'nan' : 'nv' }}"></i>
+  <view class='arrow-right'></view>
+  <view class='content'>
+    <view class='avatar'>
+      <image src='{{ item.avatarUrl}}' />
+    </view>
+    <view>
+      {{ item.content }}
+    </view>
+  </view>
+  <view class='supplement'>
+    <view>
+      <i class="iconfont icon-dizhi1"></i> {{ item.city }}
+    </view>
+    <view>
+      <i class="iconfont icon-shijian"></i> {{ item.date }}
+    </view>
+  </view>
+</view>
+</block>
+<view wx:else>
+  暂无活动
+</view>
+</view>

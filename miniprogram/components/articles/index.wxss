@@ -1,12 +1,3 @@
-.wrap {
-  padding: 20rpx 30rpx;
-}
-swiper image {
-   border-radius: 7px;
-   width:100%;
-   height:100%;
-}
-/* 
 .item:first-of-type {
   margin-top: 60rpx;
 }
@@ -78,36 +69,4 @@ swiper image {
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
-} */
-
-.add {
-  position: fixed;
-  right: 20rpx;
-  bottom: 100px;
-  background: greenyellow;
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 50%;
-  box-shadow: 5rpx 6rpx yellowgreen;
-}
-.add::before {
-  content: ' ';
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  right: 5px;
-  height: 3px;
-  box-sizing: border-box;
-  background: #fff;
-  transform: translateY(-50%);
-}
-.add::after {
-  content: ' ';
-  position: absolute;
-  left: 50%;
-  top: 5px;
-  bottom: 5px;
-  width: 3px;
-  background: #fff;
-  transform: translateX(-50%)
 }

@@ -14,13 +14,6 @@ Page({
       url: '/myArticles/index?active=' + tab,
     })
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    // const userInfo = app.globalData.userInfo
-  },
   onShow() {
     wx.getStorage({
       key: 'key',

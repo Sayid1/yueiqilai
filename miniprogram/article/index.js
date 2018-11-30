@@ -64,21 +64,26 @@ Page({
    */
   outof() {
     const article = this.data.article
+    let data = { articleid: article._id }
     let content = '确认退出吗？可以再次加入'
-    if (article.num === 1) 
+    if (article.num === 1) {
       content = '团队人数只有一人，退出即解散该团'
-    else if (article.peopleNumber === 2)
-      content = '期望人数只有两人，退出即解散该团',
-
+      data.disband = true
+    } else if (article.peopleNumber === 2) {
+      content = '期望人数只有两人，退出即解散该团'
+      data.disband = true
+    }
     wx.showModal({
       title: '',
       content: content,
       showCancel: true,
       success(res) {
         if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
+          wx.cloud.callFunction({
+            name: 'outofArticle',
+            data
+          }).then(res => console.log(res))
+          .catch(err => console.log(err))
         }
       }
     })

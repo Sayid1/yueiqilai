@@ -13,13 +13,13 @@ exports.main = async (event, context) => {
   const db = cloud.database()
 
   // 我创建或者加入的 返回类似 [_id1, _id2, ...]
-  const result = await cloud.callFunction({
+  const data = await cloud.callFunction({
     name: 'myArticlesId',
     data: {
       openid: OPENID
     }
   })
-  const articleids = result.data
+  const articleids = data.result
 
   if (articleids.length > 0) {
     let joinIds
@@ -30,14 +30,16 @@ exports.main = async (event, context) => {
         openid: OPENID
       }
     })
-    if (create.length > 0) {
+    if (create.result.length > 0) {
       let createIds = []
-      create.forEach(c => {
+      create.result.forEach(c => {
         createIds.push(c._id)
       })
       joinIds = articleids.filter(a => createIds.indexOf(a) === -1)
     } else joinIds = articleids
-
+    if (!joinIds || joinIds.length === 0)
+      return []
+      
     const joinArticles = await db.collection('t_articles').where({ _id: db.command.in(joinIds) }).field({ content: false }).orderBy('datetime', 'asc').get()
     return joinArticles.data
   }

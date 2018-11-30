@@ -27,7 +27,8 @@ exports.main = async (event, context) => {
                       nickName: event.nickName,
                       gender: event.gender,
                       avatarUrl: event.avatarUrl,
-                      fulled: false
+                      fulled: false, // 是否满员
+                      disband: false // 是否解散
                     }
                   })
 

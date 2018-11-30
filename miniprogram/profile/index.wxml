@@ -11,11 +11,11 @@
   </view>
   
   <view class="cell">
-    <view bindtap="toMyArticles" data-active="create" class="arrow">我创建的</view>
+    <view bindtap="toMyArticles" data-active="created" class="arrow">我创建的</view>
     <view bindtap="toMyArticles" data-active="join" class="arrow">我加入的</view>
     <view bindtap="toMyArticles" data-active="ing" class="arrow {{ notice ? 'inline-info' : ''}}">
       <text>正在进行的</text>
-      <text class='new'>新人加入</text>
+      <text class='new' hidden="{{ !notice }}">新人加入</text>
     </view>
   </view>
   <tabbar active="2" />
