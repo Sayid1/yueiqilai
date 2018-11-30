@@ -17,7 +17,7 @@
         <image src='{{ item.avatarUrl}}' />
       </view>
       <view>
-        {{ item.content }}  期望{{ item.peopleNumber }}人，  已有 {{ item.peopleNumber }}人
+        {{ item.content }}
       </view>
     </view>
     <view class='supplement'>

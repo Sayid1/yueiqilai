@@ -3,12 +3,13 @@
   <view class="cell">
     <view>{{ article.datetime }}</view>
     <view>{{ article.province }} {{ article.city }} {{ article.district }} {{ article.addr }}</view>
-    <view>约{{ article.peopleNumber }}人, 已约 {{ article.peopleNumber }} 人</view>
+    <view>期望{{ article.peopleNumber }}人, 已有 {{ article.fulled ? article.peopleNumber : article.num }} 人</view>
     <view>类型：{{ article.category.name }}</view>
   </view>
   <view class="fixed-bottom">
     <button class="small" bindtap="outof" hidden="{{ !isMyArticle }}">不去了</button>
-    <button open-type="getUserInfo" bindgetuserinfo="join" lang="zh_CN" hidden="{{ isMyArticle }}" class="full">我要加入</button>
-    <button open-type="share" hidden="{{ !isMyArticle }}" class="full">去邀请好友</button>
+    <button open-type="getUserInfo" bindgetuserinfo="join" lang="zh_CN" hidden="{{ isMyArticle || article.fulled }}" class="full">我要加入</button>
+    <button open-type="share" hidden="{{ !isMyArticle || article.fulled }}" class="full">去邀请好友</button>
+    <button hidden="{{ !article.fulled }}" class="full">人数已满</button>
   </view>
 </view>

@@ -11,7 +11,7 @@ exports.main = async (event, context) => {
   const db = cloud.database()
   const openid = cloud.getWXContext().OPENID || event.openid
 
-  const articles = await db.collection('t_articles').field({ content: false }).orderBy('datetime', 'asc').get()
+  const articles = await db.collection('t_articles').where({ disband: false }).field({ content: false }).orderBy('datetime', 'asc').get()
 
   return articles.data
 }

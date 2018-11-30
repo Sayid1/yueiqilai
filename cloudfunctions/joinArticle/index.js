@@ -30,7 +30,7 @@ exports.main = async (event, context) => {
 
   // 更新活动人数已满
   if ((data.length + 1) === articlePeopleNumber) {
-    db.collection('t_articles').doc(articleid).set({
+    db.collection('t_articles').doc(articleid).update({
       data: {
         fulled: true
       }

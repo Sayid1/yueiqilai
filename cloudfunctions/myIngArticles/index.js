@@ -11,6 +11,7 @@ exports.main = async (event, context) => {
   const openid = cloud.getWXContext().OPENID || event.openid
   const db = cloud.database()
 
+  // 我加入的活动id
   const myArticlesId = await cloud.callFunction({
     name: 'myArticlesId',
     data: {
@@ -21,6 +22,6 @@ exports.main = async (event, context) => {
   if (myArticlesId.length < 1)
     return []
 
-  const ingArticles = await db.collection('t_articles').where({ _id: db.command.in(myArticlesId), fulled: false }).field({ content: false }).orderBy('datetime', 'asc').get()
+  const ingArticles = await db.collection('t_articles').where({ _id: db.command.in(myArticlesId), fulled: false, disband: false }).field({ content: false }).orderBy('datetime', 'asc').get()
   return ingArticles.data
 }

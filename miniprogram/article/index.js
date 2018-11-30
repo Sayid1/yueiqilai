@@ -63,33 +63,25 @@ Page({
    * 退出
    */
   outof() {
-    if (this.data.article.peopleNumber === 2) {
-      wx.showModal({
-        title: '',
-        content: '因人数只有两人，你退出即解散改团',
-        showCancel: true,
-        success(res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
+    const article = this.data.article
+    let content = '确认退出吗？可以再次加入'
+    if (article.num === 1) 
+      content = '团队人数只有一人，退出即解散该团'
+    else if (article.peopleNumber === 2)
+      content = '期望人数只有两人，退出即解散该团',
+
+    wx.showModal({
+      title: '',
+      content: content,
+      showCancel: true,
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
         }
-      })
-    } else {
-      wx.showModal({
-        title: '',
-        content: '确认退出吗？可以再次加入',
-        showCancel: true,
-        success(res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
-      })
-    }
+      }
+    })
   },
   getArticle(options) {
     wx.showLoading({
@@ -103,11 +95,11 @@ Page({
       }
     }).then(({ result }) => {
       wx.setNavigationBarTitle({
-        title: result.data.category.name
+        title: result.category.name
       })
-      let isMyArticle = app.globalData.loginInfo.openid === result.data.openid
+      let isMyArticle = app.globalData.loginInfo.openid === result.openid
       this.setData({
-        article: result.data,
+        article: result,
         isMyArticle
       })
       if (!isMyArticle) {
@@ -124,6 +116,7 @@ Page({
         }
         
       }).catch(err => {
+        console.error(err)
         wx.showModal({
           title: '',
           content: '出错了',

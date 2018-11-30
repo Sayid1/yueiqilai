@@ -9,7 +9,7 @@
 
   <view class="cell">
     <view bindtap="toggleModal" data-key="showPeopleNumber" class="inline-info arrow">
-     <text>几人</text>
+     <text>期望人数</text>
       <text>{{ peopleNumber }}</text>
     </view>
     <view bindtap="addCategory" class="inline-info arrow">
@@ -28,7 +28,7 @@
     bind:cancel="toggleModal"
     bind:confirm="comfirmPeopleNumber"
     >
-      <input bindinput="inputPeopleNumber" placeholder="多少人" type="number" class="people-input" />
+      <input bindinput="inputPeopleNumber" placeholder="多少人" type="number" maxlength="3" class="people-input" />
     </van-dialog>
     <van-dialog
     use-slot
