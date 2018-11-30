@@ -42,7 +42,8 @@ Page({
     wx.cloud.callFunction({
       name: 'joinArticle',
       data: {
-        articleid: this.data.article._id
+        articleid: this.data.article._id,
+        articlePeopleNumber: this.data.article.peopleNumber
       }
     }).then(res => {
       this.setData({

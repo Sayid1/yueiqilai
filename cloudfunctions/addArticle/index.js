@@ -26,7 +26,8 @@ exports.main = async (event, context) => {
                       openid: OPENID,
                       nickName: event.nickName,
                       gender: event.gender,
-                      avatarUrl: event.avatarUrl
+                      avatarUrl: event.avatarUrl,
+                      fulled: false
                     }
                   })
 
